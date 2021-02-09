@@ -1,0 +1,10 @@
+{% autoescape off %}
+Hi {{user}}
+
+Thankyou for creating an account with us.Please use link below to confirm your account
+
+From MedBuy
+
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+{% endautoescape %}

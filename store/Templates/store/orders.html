@@ -1,0 +1,36 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+	<div class="col-lg-12">
+<div class="box-element">
+    <div class="cart-row">
+        <div style="flex:2"><strong>Status</strong></div>
+        <div style="flex:2"><strong>Item</strong></div>
+        <div style="flex:1"><strong>Price</strong></div>
+        <div style="flex:1"><strong>Quantity</strong></div>
+        <div style="flex:1"><strong>Total</strong></div>
+    </div>
+    {% for i in items%}
+    {% for item in i%}
+
+    <div class="cart-row w-100 hover-shadow">
+        {% if item.shipped %}
+        <div style="flex:2"><p>Shipped</p></div>
+        {% else %}
+        <div style="flex:2"><p>Processing</p></div>
+        {% endif %}
+        <div style="flex:2"><p>{{item.product.name}}</p></div>
+        <div style="flex:1"><p>₹{{item.product.price|floatformat:2}}</p></div>
+        <div style="flex:1">
+            <p class="quantity">{{item.quantity}}</p>
+        </div>
+        <div style="flex:1"><p>₹{{item.get_total}}</p></div>
+    </div>
+    {% endfor %}
+    {% endfor %}
+</div>
+</div>
+
+
+{% endblock content %}
