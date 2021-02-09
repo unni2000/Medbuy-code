@@ -1,0 +1,23 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div class="container grid-lg">
+    <div class="columns">
+        <div class="column col-4">
+            <img style="height:100%;width:100%; ;" src="{{product.imageURL}}" alt="">
+        </div>
+        <div class="column col-8">
+            <h1>
+                {{product.name}}
+            </h1>
+            <h4 style="display: inline-block; float:right;"><strong>₹{{product.price|floatformat:2}}</strong></h4>
+        </div>
+        <div class="column col-4">
+            <p>{{product.description}}</p>
+        </div>
+    
+        <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+    </div>
+</div>
+
+{% endblock content %}
